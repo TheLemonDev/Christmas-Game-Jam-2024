@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://beyohou44xbl"]
+
+[ext_resource type="PackedScene" uid="uid://dswn2bc57kgli" path="res://scenes/player.tscn" id="2_thmkf"]
+[ext_resource type="PackedScene" uid="uid://bb76y7f2uhj5s" path="res://scenes/candycane.tscn" id="2_xgees"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("text") instance=ExtResource("2_thmkf")]
+position = Vector2(-1479, -555)
+speed = 1000.0
+speedMultiplyer = 1.5
+speedMultiplyerOffset = 300.0
+turnSpeed = 120.0
+dragThreshold = 200.0
+gravity = 130.0
+text = NodePath("../Control/Label")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(558, -2)
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
+[node name="Candycane" parent="." instance=ExtResource("2_xgees")]
+position = Vector2(-1462, -137)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -655.0
+offset_top = -14.0
+offset_right = -541.0
+offset_bottom = 9.0
+text = "HELLO WORLD"
